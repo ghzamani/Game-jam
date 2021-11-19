@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
 	public float speed = 5.0f;
 	public float jumpSpeed = 1.0f;
 	private bool onPipe = false;
+	private int hearts;
 
 	Animation anim;
 
@@ -18,6 +19,8 @@ public class playerController : MonoBehaviour
 	void Start()
 	{
 		anim = GetComponent<Animation>();
+		//var text = GameObject.Find("HeartsText").text;
+		//hearts = int.Parse(text.Split(':'));
 	}
 
 	private void Update()
@@ -142,6 +145,12 @@ public class playerController : MonoBehaviour
 			transform.localScale = new Vector3(0.4f, 0.25f, 0.4f);
 			collision.gameObject.SetActive(false);
 		}
+
+		if (collision.gameObject.CompareTag(TagNames.Enemy.ToString()))
+		{
+			Debug.Log("Triggered an enemy");
+			eventSystem.OnHeartDecrease.Invoke();
+		}
 	}
 
 	private void OnTriggerExit(Collider collision)
@@ -149,7 +158,6 @@ public class playerController : MonoBehaviour
 		if (collision.gameObject.CompareTag(TagNames.Pipe.ToString()))
 		{
 			onPipe = false;
-
 		}
 	}
 

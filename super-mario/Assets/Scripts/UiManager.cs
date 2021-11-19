@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
 	public Text coinText;
-    public EventSystemCustom eventSystem;
+	public Text heartsText;
+	public EventSystemCustom eventSystem;
 
     void Start()
     {
         eventSystem.OnCoinTrigger.AddListener(UpdateCoinText);
+        eventSystem.OnHeartDecrease.AddListener(DecreaseHeartText);
 	}
 
     public void UpdateCoinText()
@@ -21,4 +23,17 @@ public class UiManager : MonoBehaviour
 		coinText.text = "Coins:" + newValue.ToString();
 	}
 
+	public void DecreaseHeartText()
+	{
+		//Debug.Log("UPDATE SCORE");
+		var text = heartsText.text.Split(':');
+		int newValue = int.Parse(text[1]) - 1;
+		if(newValue == 0)
+		{
+			heartsText.text = "YOU LOOSED!";
+			Time.timeScale = 0;
+		}
+
+		else heartsText.text = "Hearts:" + newValue.ToString();
+	}
 }

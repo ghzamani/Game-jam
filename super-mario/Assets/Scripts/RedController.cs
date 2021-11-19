@@ -5,7 +5,7 @@ using UnityEngine;
 public class RedController : MonoBehaviour
 {
 	float left = -30.5f;
-	float right = -18.5f;
+	float right = -25.5f;
 	float movingSpeed = 0.01f;
 	float side = 1f;
 	Vector3 moveVec;
