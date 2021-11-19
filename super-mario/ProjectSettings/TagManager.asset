@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Brick
+  - Pipe
   layers:
   - Default
   - TransparentFX

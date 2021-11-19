@@ -6,12 +6,15 @@ public class playerController : MonoBehaviour
 {
 	public float speed = 5.0f;
 	public float jumpSpeed = 1.0f;
+	private bool onPipe = false;
 	Animation anim;
-	private SpriteRenderer mySpriteRenderer;
+
+	public GameObject mainCamera;
+	public GameObject secondCamera;
+
 	void Start()
 	{
 		anim = GetComponent<Animation>();
-		mySpriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	private void Update()
@@ -53,8 +56,21 @@ public class playerController : MonoBehaviour
 		if (jump)
 			anim.Play("Runtojumpspring");
 
-		transform.Translate(new Vector3(horizontal * (speed * Time.deltaTime), (jump ? jumpSpeed * Time.deltaTime : 0), vertical* (speed * Time.deltaTime)) );
-		
+		transform.Translate(new Vector3(horizontal * (speed * Time.deltaTime), (jump ? jumpSpeed * Time.deltaTime : 0), vertical * (speed * Time.deltaTime)));
+
+
+		if (onPipe && Input.GetKeyDown(KeyCode.X))
+		{
+			Debug.Log("pressed the key");
+
+			// change camera to show second scene
+			secondCamera.SetActive(true);
+			mainCamera.SetActive(false);
+
+			// also change the character position
+			this.transform.position = new Vector3(55, -5, 1);
+		}
+
 	}
 
 	private void OnTriggerEnter(Collider collision)
@@ -62,12 +78,26 @@ public class playerController : MonoBehaviour
 		if (collision.gameObject.CompareTag(TagNames.Brick.ToString()))
 		{
 			Debug.Log("Triggered a Brick");
-			//anim.Play("Idle");
 			var brick = collision.gameObject.GetComponent<BrickController>();
 			//brick.MoveDestroy();
 			StartCoroutine(brick.Move());
 			
 		}
 
+		if (collision.gameObject.CompareTag(TagNames.Pipe.ToString()))
+		{
+			Debug.Log("Triggered the pipe");
+			onPipe = true;
+		}
 	}
+
+	private void OnTriggerExit(Collider collision)
+	{
+		if (collision.gameObject.CompareTag(TagNames.Pipe.ToString()))
+		{
+			onPipe = false;
+
+		}
+	}
+
 }
