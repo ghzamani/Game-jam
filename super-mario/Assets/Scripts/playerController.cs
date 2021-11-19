@@ -71,8 +71,12 @@ public class playerController : MonoBehaviour
 			secondCamera.SetActive(true);
 			mainCamera.SetActive(false);
 
-			// also change the character position
-			this.transform.position = new Vector3(55, -5, 1);
+			// also change the character position to the second scene position
+			var pipe_pos = GameObject.Find("BlueGround").transform.position;
+
+			//this.transform.position = new Vector3(55, -5, 1);
+			Debug.Log(pipe_pos);
+			this.transform.position = pipe_pos + new Vector3(14, -4, 0);
 		}
 
 	}
