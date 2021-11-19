@@ -10,6 +10,9 @@ public enum TagNames
 	SecondPipe,
 	Enemy,
 	Red,
+	UnusedBox,
+	UsedBox,
+	Mushroom,
 }
 
     

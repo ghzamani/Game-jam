@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurtleController : MonoBehaviour
+public class RedController : MonoBehaviour
 {
 	float left = -30.5f;
 	float right = -18.5f;

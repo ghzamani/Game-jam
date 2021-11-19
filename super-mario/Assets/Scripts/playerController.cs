@@ -87,8 +87,14 @@ public class playerController : MonoBehaviour
 			Debug.Log("Triggered a Brick");
 			var brick = collision.gameObject.GetComponent<BrickController>();
 			//brick.MoveDestroy();
-			StartCoroutine(brick.Move());
-			
+			StartCoroutine(brick.Move());			
+		}
+
+		if (collision.gameObject.CompareTag(TagNames.UnusedBox.ToString()))
+		{
+			Debug.Log("Triggered a question box");
+			var box = collision.gameObject.GetComponent<QuestionController>();
+			box.UnusedBoxMove();
 		}
 
 		if (collision.gameObject.CompareTag(TagNames.Pipe.ToString()))

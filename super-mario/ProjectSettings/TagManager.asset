@@ -11,6 +11,9 @@ TagManager:
   - SecondPipe
   - Enemy
   - Red
+  - UnusedBox
+  - UsedBox
+  - Mushroom
   layers:
   - Default
   - TransparentFX
