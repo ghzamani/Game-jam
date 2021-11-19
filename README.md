@@ -1,8 +1,9 @@
 # Game-jam
 This repository is for a game jam with "Classic Game Remix" theme.
-I have implemented super mario with these features:
+I have implemented super mario.
 
-- [x] Setup the project
+## TODO
+- [x] Setup the 3D project
 - [x] Player move left right
 - [x] Player Jump
 - [x] Design some level with brown ground and sky
