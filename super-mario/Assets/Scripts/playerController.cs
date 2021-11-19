@@ -135,6 +135,13 @@ public class playerController : MonoBehaviour
 			Debug.Log("Triggered the red slime");
 			collision.gameObject.SetActive(false);
 		}
+
+		if (collision.gameObject.CompareTag(TagNames.Mushroom.ToString()))
+		{
+			Debug.Log("Triggered mushroom");
+			transform.localScale = new Vector3(0.4f, 0.25f, 0.4f);
+			collision.gameObject.SetActive(false);
+		}
 	}
 
 	private void OnTriggerExit(Collider collision)
