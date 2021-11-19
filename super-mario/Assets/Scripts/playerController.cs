@@ -98,6 +98,23 @@ public class playerController : MonoBehaviour
 			onPipe = true;
 		}
 
+		if (collision.gameObject.CompareTag(TagNames.SecondPipe.ToString()))
+		{
+			Debug.Log("Triggered second world pipe");
+
+			// change camera to show first scene
+			secondCamera.SetActive(false);
+			mainCamera.SetActive(true);
+
+			// also change the character position to the second scene position
+			var pipe_pos = GameObject.Find("ExitPipe").transform.position;
+
+			//this.transform.position = new Vector3(-15, 3, 1);
+			Debug.Log(pipe_pos);
+			this.transform.position = pipe_pos + new Vector3(5, 2, 0);
+
+		}
+
 		if (collision.gameObject.CompareTag(TagNames.Coin.ToString()))
 		{
 			Debug.Log("Triggered the coin");

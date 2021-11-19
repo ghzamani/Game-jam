@@ -7,6 +7,7 @@ public enum TagNames
     Brick,
 	Pipe,
 	Coin,
+	SecondPipe,
 }
 
     
