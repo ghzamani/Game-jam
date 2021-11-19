@@ -123,6 +123,12 @@ public class playerController : MonoBehaviour
 			eventSystem.OnCoinTrigger.Invoke();
 			collision.gameObject.SetActive(false);
 		}
+
+		if (collision.gameObject.CompareTag(TagNames.Red.ToString()))
+		{
+			Debug.Log("Triggered the red slime");
+			collision.gameObject.SetActive(false);
+		}
 	}
 
 	private void OnTriggerExit(Collider collision)

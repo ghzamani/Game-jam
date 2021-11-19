@@ -8,6 +8,8 @@ public enum TagNames
 	Pipe,
 	Coin,
 	SecondPipe,
+	Enemy,
+	Red,
 }
 
     

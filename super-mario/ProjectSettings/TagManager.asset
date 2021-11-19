@@ -9,6 +9,8 @@ TagManager:
   - Pipe
   - Coin
   - SecondPipe
+  - Enemy
+  - Red
   layers:
   - Default
   - TransparentFX
