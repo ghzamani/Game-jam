@@ -5,17 +5,10 @@ using UnityEngine.Events;
 
 public class EventSystemCustom : MonoBehaviour
 {
-	//public UnityEvent OnCloneStickyPlatformEnter;
-	public UnityEvent OnBrickTrigger;
+	public UnityEvent OnCoinTrigger;
 
 	void Awake()
     {
-		OnBrickTrigger = new UnityEvent();
-  //      OnCloneStickyPlatformEnter = new UnityEvent();
-		//OnKeyTrigger = new UnityEvent();
-		//OnWinCondition = new UnityEvent();
-		//OnLooseCondition = new UnityEvent();
-		//OnSpecialKeyTrigger = new UnityEvent();
-		//OnSpecialKeyDecrease = new UnityEvent();
+		OnCoinTrigger = new UnityEvent();
 	}
 }

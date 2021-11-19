@@ -7,10 +7,14 @@ public class playerController : MonoBehaviour
 	public float speed = 5.0f;
 	public float jumpSpeed = 1.0f;
 	private bool onPipe = false;
+
 	Animation anim;
 
 	public GameObject mainCamera;
 	public GameObject secondCamera;
+
+	public EventSystemCustom eventSystem;
+
 
 	void Start()
 	{
@@ -88,6 +92,13 @@ public class playerController : MonoBehaviour
 		{
 			Debug.Log("Triggered the pipe");
 			onPipe = true;
+		}
+
+		if (collision.gameObject.CompareTag(TagNames.Coin.ToString()))
+		{
+			Debug.Log("Triggered the coin");
+			eventSystem.OnCoinTrigger.Invoke();
+			collision.gameObject.SetActive(false);
 		}
 	}
 
