@@ -31,7 +31,11 @@ public class UiManager : MonoBehaviour
 		if(newValue == 0)
 		{
 			heartsText.text = "YOU LOOSED!";
+			// find the enemy and deactive it
+			var enemy = GameObject.Find("TurtleShell");
+			enemy.SetActive(false);
 			Time.timeScale = 0;
+			
 		}
 
 		else heartsText.text = "Hearts:" + newValue.ToString();
