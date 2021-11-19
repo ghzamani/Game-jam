@@ -15,7 +15,6 @@ public class playerController : MonoBehaviour
 
 	public EventSystemCustom eventSystem;
 
-
 	void Start()
 	{
 		anim = GetComponent<Animation>();
@@ -117,6 +116,9 @@ public class playerController : MonoBehaviour
 
 		if (collision.gameObject.CompareTag(TagNames.Coin.ToString()))
 		{
+			var coin = collision.gameObject.GetComponent<CoinController>();
+			coin.PlaySound();
+
 			Debug.Log("Triggered the coin");
 			eventSystem.OnCoinTrigger.Invoke();
 			collision.gameObject.SetActive(false);

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-    // Start is called before the first frame update
+	// Start is called before the first frame update
+	public AudioSource coinSound;
+
     void Start()
     {
         
@@ -15,4 +17,10 @@ public class CoinController : MonoBehaviour
     {
 		transform.Rotate(0, 1, 0, Space.World);
     }
+
+	public void PlaySound()
+	{
+		Debug.Log("called coin sound");
+		coinSound.Play();
+	}
 }
